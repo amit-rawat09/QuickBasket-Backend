@@ -22,7 +22,7 @@ await connectDB()
 await connectCloudinary()
 
 // ALLOWED MULTIPLE ORIGNS
-const allowedOrigins = ["http://localhost:5173"]
+const allowedOrigins = ["http://localhost:5173","https://quickbasket-beta.vercel.app"]
 
 app.post('/stripe',express.raw({type:"application/json"}),stripeWehost)
 
@@ -55,4 +55,5 @@ app.use('/api/order', orderRouter)
 
 app.listen(port, () => {
     console.log(`App is running on https://locahost:${port}`)
+
 })
