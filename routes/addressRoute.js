@@ -1,0 +1,9 @@
+import e from "express";
+import { addAddress, getAddress } from "../controllers/addressController.js";
+import authUser from "../middleware/authUser.js";
+const addressRouter = e.Router()
+
+addressRouter.post("/add", authUser, addAddress)
+addressRouter.get("/get", authUser, getAddress)
+
+export default addressRouter; 
