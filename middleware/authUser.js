@@ -10,7 +10,7 @@ const authUser = async (req, res, next) => {
         const tokenDecode = jwt.verify(token, process.env.JWT_SECRET)
 
         if (tokenDecode.id) {
-            req.userId = tokenDecode.id
+        req.body.userId = tokenDecode.id
         } else {
             return res.json({ success: false, message: "Not Authorized" })
         }
@@ -21,5 +21,6 @@ const authUser = async (req, res, next) => {
     }
 
 }
+
 
 export default authUser
