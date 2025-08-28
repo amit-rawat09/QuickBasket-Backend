@@ -10,8 +10,8 @@ export const sellerLogin = async (req, res, next) => {
 
             res.cookie("sellerToken", token, {
                 httpOnly: true, // PREVENT JAVASCRIPT TO ACCESS COOKIE
-                secure: process.env.NODE_ENV === "production", // USE SECURE COOKIE IN PRODUCTION
-                sameSite: process.env.NODE_ENV === "production" ? 'none' : 'strict', // USE SECURE COOKIE IN PRODUCTION
+                // secure: process.env.NODE_ENV === "production", // USE SECURE COOKIE IN PRODUCTION
+                // sameSite: process.env.NODE_ENV === "production" ? 'none' : 'strict', // USE SECURE COOKIE IN PRODUCTION
                 maxAge: 7 * 24 * 60 * 60 * 1000
             })
 
@@ -52,3 +52,4 @@ export const logout = async (req, res) => {
         return res.json({ success: false, message: error.message })
     }
 }
+
